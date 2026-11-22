@@ -82,9 +82,102 @@ export function backendUrl(path: string | null | undefined): string {
   return /^https?:\/\//.test(path) ? path : `${API_BASE_URL}${path}`;
 }
 
-export async function uploadImage(file: File): Promise<string> {
+/** Envoie une image au backend ; retourne son chemin (/uploads/<dossier>/...). */
+export async function uploadImage(file: File, folder: "blog" | "projects" | "localities" = "blog"): Promise<string> {
   const form = new FormData();
   form.append("file", file);
-  const { url } = await adminFetch<{ url: string }>("/uploads", { method: "POST", body: form });
+  const { url } = await adminFetch<{ url: string }>(`/uploads?folder=${folder}`, { method: "POST", body: form });
   return url;
 }
+
+/** Aperçu d'une image dans le dashboard : /uploads/... sur le backend, /assets/... sur le site. */
+export function previewUrl(path: string | null | undefined): string {
+  if (!path) return "";
+  if (/^https?:\/\//.test(path)) return path;
+  return path.startsWith("/uploads/") ? `${API_BASE_URL}${path}` : path;
+}
+
+// ---------------------------------------------------------------- catalogue
+
+export type ProjectStatus = "en_cours" | "livre" | "bientot";
+export type AdminPlan = { type: string; area: string; rooms?: { name: string; area: string }[] };
+export type ProjectTexts = { shortDescription: string; description: string; typology: string; metaTitle: string; metaDescription: string; machineTranslated?: boolean };
+
+export type AdminProject = {
+  id: number;
+  slug: string;
+  title: string;
+  status: ProjectStatus;
+  address: string;
+  localityId: number | null;
+  latitude: number | null;
+  longitude: number | null;
+  progressPercent: number | null;
+  cardImage: string;
+  coverImage: string;
+  isNightMode: boolean;
+  published: boolean;
+  sortOrder: number;
+  blocks: string;
+  typology: string;
+  features: string[];
+  plans: AdminPlan[];
+  gallery: string[];
+  mapEmbedUrl: string;
+  mapLinkUrl: string;
+  virtualTourUrl: string;
+  odooResidenceId: number | null;
+  shortDescription: string;
+  description: string;
+  metaTitle: string;
+  metaDescription: string;
+  translations: Partial<Record<"en" | "ar", ProjectTexts & { updatedAt?: string }>>;
+  updatedAt?: string;
+};
+
+export type AdminProjectRow = {
+  id: number;
+  slug: string;
+  title: string;
+  status: ProjectStatus;
+  address: string | null;
+  progressPercent: number | null;
+  cardImage: string | null;
+  published: boolean;
+  sortOrder: number;
+  odooResidenceId: number | null;
+  locality: string | null;
+  locales: ("fr" | "en" | "ar")[];
+  machineTranslated: ("en" | "ar")[];
+  updatedAt: string;
+};
+
+export type LocalityTexts = { name: string; description: string; machineTranslated?: boolean };
+
+export type AdminLocality = {
+  id: number;
+  slug: string;
+  name: string;
+  city: string;
+  description: string;
+  imageUrl: string;
+  iconImage: string;
+  mobileImageUrl: string;
+  published: boolean;
+  sortOrder: number;
+  translations: Partial<Record<"en" | "ar", LocalityTexts & { updatedAt?: string }>>;
+  updatedAt?: string;
+};
+
+export type AdminLocalityRow = {
+  id: number;
+  slug: string | null;
+  name: string;
+  city: string;
+  iconImage: string | null;
+  published: boolean;
+  sortOrder: number;
+  projects: number;
+  locales: ("fr" | "en" | "ar")[];
+  updatedAt: string;
+};

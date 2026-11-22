@@ -6,6 +6,7 @@ import { API_BASE_URL } from "@/lib/config";
 import { getHubspotContext } from "@/lib/legacy/hubspotContext";
 import { getLocalities, localityShortName, localitySlug } from "@/data/localities.i18n";
 import { LOCALITIES } from "@/data/mockData";
+import { slugify } from "@/lib/catalogShared";
 
 const GOLD = "#F7C66A";
 const LABEL_GOLD = "#F4CE86";
@@ -192,7 +193,7 @@ export default function Footer() {
                 </p>
                 <div className="flex flex-col gap-2 text-white/80">
                   {FEATURED_RESIDENCES.map((name) => (
-                    <LocaleLink key={name} href={`/projet/${name.toLowerCase()}`} className="transition hover:text-[#F7C66A]">
+                    <LocaleLink key={name} href={`/projet/${slugify(name)}`} className="transition hover:text-[#F7C66A]">
                       {t("residence", { name })}
                     </LocaleLink>
                   ))}

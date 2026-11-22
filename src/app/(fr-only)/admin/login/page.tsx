@@ -24,7 +24,7 @@ export default function AdminLoginPage() {
       });
       setToken(token, remember);
       const next = new URLSearchParams(window.location.search).get("next");
-      window.location.href = next && next.startsWith("/admin") ? next : "/admin/blog";
+      window.location.href = next && next.startsWith("/admin") ? next : "/admin/projets";
     } catch (err) {
       setError((err as Error).message);
       setLoading(false);

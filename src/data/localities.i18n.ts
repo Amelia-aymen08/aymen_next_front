@@ -1,5 +1,6 @@
 import type { Locale } from "@/i18n/config";
 import { LOCALITIES, type Locality } from "./mockData";
+import { slugify } from "@/lib/catalogShared";
 
 // Traductions des localités (clé = id de LOCALITIES dans mockData.ts).
 // Le français reste la source dans mockData.ts.
@@ -39,8 +40,9 @@ const AR: Record<number, LocalityText> = {
 const BY_LOCALE: Partial<Record<Locale, Record<number, LocalityText>>> = { en: EN, ar: AR };
 
 /** Slug d'URL d'une localité : identique dans les 3 langues (basé sur le nom français). */
+/** Adresse de la page localité : « CHÉRAGA, ALGER » -> « cheraga » (même règle que le backend). */
 export function localitySlug(loc: Pick<Locality, "name">): string {
-  return loc.name.split(",")[0].trim().toLowerCase().replace(/ /g, "-");
+  return slugify(loc.name.split(",")[0]);
 }
 
 export function localizeLocality(loc: Locality, locale: Locale): Locality {

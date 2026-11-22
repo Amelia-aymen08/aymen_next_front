@@ -176,6 +176,14 @@ body {
   opacity: 0; /* Start hidden */
 }
 
+/* Animations réduites : les éléments apparaissent directement (sinon ils resteraient invisibles). */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fadeInUp {
+    animation: none;
+    opacity: 1;
+  }
+}
+
 /* Fix react-pdf inside react-pageflip */
 .react-pdf__Page {
   width: 100% !important;

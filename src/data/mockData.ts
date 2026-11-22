@@ -98,7 +98,7 @@ Aymen Promotion assure la gestion complète de la copropriété : entretien des 
       { label: "Adresse", value: "Ain Allah" },
       { label: "Typologie", value: "F2 au F5, Duplex, Piscines privatives" },
       { label: "Blocs", value: "03" },
-      { label: "État d'avancement", value: "Avant-première" },
+      { label: "État d'avancement", value: "1 %" },
     ],
     mapEmbedUrl: "https://www.google.com/maps?q=Ain+Allah,+Dely+Ibrahim,+Alger&output=embed",
     mapLinkUrl: "https://www.google.com/maps/search/?api=1&query=Ain+Allah+Dely+Ibrahim+Alger",
@@ -163,7 +163,7 @@ Aymen Promotion assure la gestion complète de la copropriété : entretien des 
     details: [
       { label: "Adresse", value: "Alger" },
       { label: "Blocs", value: "02" },
-      { label: "État d'avancement", value: "Phase Terrassement" },
+      { label: "État d'avancement", value: "2 %" },
     ],
     lat: 36.772,
     lng: 3.011,
@@ -212,7 +212,7 @@ La résidence déploie une gamme complète de typologies : des F2 de 45,99 à 64
     details: [
       { label: "Adresse", value: "Chéraga" },
       { label: "Blocs", value: "01" },
-      { label: "État d'avancement", value: "45 %" },
+      { label: "État d'avancement", value: "50 %" },
     ],
     mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3196.23760280708!2d2.974886876268521!3d36.76486706968977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128fb10040bbf7a5%3A0xce81910a714b5a2!2sR%C3%A9sidence%20cyanite%20Aymen%20promotion%20immobili%C3%A8re!5e0!3m2!1sfr!2sdz!4v1774041626213!5m2!1sfr!2sdz",
     mapLinkUrl: "https://maps.app.goo.gl/Uq6w6fmFtPx9jqVh8",
@@ -250,7 +250,7 @@ La résidence déploie une gamme complète de typologies : des F2 de 45,99 à 64
     details: [
       { label: "Adresse", value: "Kouba" },
       { label: "Blocs", value: "01" },
-      { label: "État d'avancement", value: "45 %" },
+      { label: "État d'avancement", value: "50 %" },
     ],
     mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.7363195114867!2d3.078613776267278!3d36.728893471715274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128fad7bb83c8ea5%3A0x50a7ffdd575e55c4!2sR%C3%A9sidence%20Azurite%2C%20Aymen%20Promotion%20Immobili%C3%A8re!5e0!3m2!1sfr!2sdz!4v1774042127769!5m2!1sfr!2sdz",
     mapLinkUrl: "https://maps.app.goo.gl/yRphs45tYaWyNTye8",
@@ -284,7 +284,7 @@ La résidence déploie une gamme complète de typologies : des F2 de 45,99 à 64
     details: [
       { label: "Adresse", value: "El Achour" },
       { label: "Blocs", value: "02" },
-      { label: "État d'avancement", value: "88 %" },
+      { label: "État d'avancement", value: "90 %" },
     ],
     lat: 36.735,
     lng: 3.004,
@@ -325,7 +325,7 @@ La Résidence Amétrine se distingue également par sa situation géographique s
     details: [
       { label: "Adresse", value: "Said Hamdine" },
       { label: "Blocs", value: "01" },
-      { label: "État d'avancement", value: "87 %" },
+      { label: "État d'avancement", value: "90 %" },
     ],
     lat: 36.7354,
     lng: 3.0306,
@@ -367,7 +367,7 @@ Au cœur de ce havre de paix, les résidents pourront également profiter de par
     details: [
       { label: "Adresse", value: "Hydra" },
       { label: "Blocs", value: "01" },
-      { label: "État d'avancement", value: "98 %" },
+      { label: "État d'avancement", value: "99 %" },
     ],
     mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.114852661403!2d3.0367976762678013!3d36.743814170875346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128fadf8fe60d695%3A0x94468592c12c7c0d!2sR%C3%A9sidence%20Cornaline%2C%20Aymen%20Promotion%20Immobili%C3%A8re!5e0!3m2!1sfr!2sdz!4v1774042859806!5m2!1sfr!2sdz",
     mapLinkUrl: "https://maps.app.goo.gl/kwAxUXzTKrq52jJN7",
@@ -450,7 +450,7 @@ Aymen Promotion Immobilière s'engage à offrir à ses clients un cadre de vie d
     details: [
       { label: "Adresse", value: "Bab Ezzouar" },
       { label: "Blocs", value: "07" },
-      { label: "État d'avancement", value: "83 %" },
+      { label: "État d'avancement", value: "86 %" },
     ],
     lat: 36.7350,
     lng: 3.1908,
@@ -573,7 +573,7 @@ En définitive, la résidence Diar El Amane est une allégorie de l’art de viv
     details: [
       { label: "Adresse", value: "Birkhadem" },
       { label: "Blocs", value: "04" },
-      { label: "État d'avancement", value: "97 %" },
+      { label: "État d'avancement", value: "98 %" },
     ],
     lat: 36.72564127189821,
     lng: 3.049064176267157,

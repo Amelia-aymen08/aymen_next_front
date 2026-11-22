@@ -1,12 +1,39 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { createContext, useContext, useEffect, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { createContext, Suspense, useContext, useEffect, useState } from "react";
 import { adminFetch, getToken, setToken, type AdminUser } from "@/lib/adminApi";
 
 const UserContext = createContext<AdminUser | null>(null);
+
+const NAV = [
+  { href: "/admin/projets", label: "Projets" },
+  { href: "/admin/localites", label: "Localités" },
+  { href: "/admin/blog", label: "Articles" },
+];
 export const useAdminUser = () => useContext(UserContext);
+
+function NavLinks({ current }: { current: string }) {
+  return (
+    <>
+      {NAV.map((item) => (
+        <Link
+          key={item.href}
+          href={item.href}
+          aria-current={current.startsWith(item.href) ? "page" : undefined}
+          className={current.startsWith(item.href) ? "font-semibold text-[#F7C66A]" : "text-white/80 hover:text-[#F7C66A]"}
+        >
+          {item.label}
+        </Link>
+      ))}
+    </>
+  );
+}
+
+function CurrentNavLinks() {
+  return <NavLinks current={usePathname()} />;
+}
 
 /** Vérifie la session puis affiche la barre du back-office. Redirige vers /admin/login sinon. */
 export default function AdminShell({ children }: { children: React.ReactNode }) {
@@ -41,17 +68,17 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
       <header className="sticky top-0 z-40 border-b border-white/10 bg-[#031B17]/95 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
           <div className="flex items-center gap-6">
-            <Link href="/admin/blog" className="flex items-center gap-3">
+            <Link href="/admin/projets" className="flex items-center gap-3">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/logo_original.svg" alt="Aymen Promotion" className="h-8 w-auto" />
               <span className="hidden text-sm font-semibold text-white/80 sm:inline">Back-office</span>
             </Link>
-            <nav className="flex items-center gap-4 text-sm">
-              <Link href="/admin/blog" className="text-white/80 hover:text-[#F7C66A]">
-                Articles
-              </Link>
-              <a href="/blog" target="_blank" rel="noopener" className="text-white/50 hover:text-white">
-                Voir le blog ↗
+            <nav className="flex items-center gap-4 text-sm" aria-label="Back-office">
+              <Suspense fallback={<NavLinks current="" />}>
+                <CurrentNavLinks />
+              </Suspense>
+              <a href="/" target="_blank" rel="noopener" className="hidden text-white/50 hover:text-white sm:inline">
+                Voir le site ↗
               </a>
             </nav>
           </div>
